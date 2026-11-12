@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- How the AdminTools objects look in the terminal. The objects keep all their properties; this only picks the default columns. -->
+<Configuration>
+  <ViewDefinitions>
+
+    <View>
+      <Name>TerminalPro.PCInfo</Name>
+      <ViewSelectedBy><TypeName>TerminalPro.PCInfo</TypeName></ViewSelectedBy>
+      <ListControl>
+        <ListEntries>
+          <ListEntry>
+            <ListItems>
+              <ListItem><PropertyName>Name</PropertyName></ListItem>
+              <ListItem><PropertyName>Owner</PropertyName></ListItem>
+              <ListItem><PropertyName>Domain</PropertyName></ListItem>
+              <ListItem><PropertyName>Manufacturer</PropertyName></ListItem>
+              <ListItem><PropertyName>Model</PropertyName></ListItem>
+              <ListItem><PropertyName>OS</PropertyName></ListItem>
+              <ListItem><PropertyName>Version</PropertyName></ListItem>
+              <ListItem><PropertyName>Build</PropertyName></ListItem>
+              <ListItem>
+                <Label>Uptime</Label>
+                <ScriptBlock>if ($_.Uptime) { '{0}d {1}h {2}m' -f $_.Uptime.Days, $_.Uptime.Hours, $_.Uptime.Minutes }</ScriptBlock>
+              </ListItem>
+              <ListItem><PropertyName>CPU</PropertyName></ListItem>
+              <ListItem><Label>RAM (GB)</Label><PropertyName>RamGB</PropertyName></ListItem>
+            </ListItems>
+          </ListEntry>
+        </ListEntries>
+      </ListControl>
+    </View>
+
+    <View>
+      <Name>TerminalPro.DiskStorage</Name>
+      <ViewSelectedBy><TypeName>TerminalPro.DiskStorage</TypeName></ViewSelectedBy>
+      <TableControl>
+        <TableHeaders>
+          <TableColumnHeader><Label>Drive</Label></TableColumnHeader>
+          <TableColumnHeader><Label>Label</Label></TableColumnHeader>
+          <TableColumnHeader><Label>System</Label></TableColumnHeader>
+          <TableColumnHeader><Label>State</Label></TableColumnHeader>
+          <TableColumnHeader><Label>Free (GB)</Label><Alignment>Right</Alignment></TableColumnHeader>
+          <TableColumnHeader><Label>Free %</Label><Alignment>Right</Alignment></TableColumnHeader>
+          <TableColumnHeader><Label>Size (GB)</Label><Alignment>Right</Alignment></TableColumnHeader>
+        </TableHeaders>
+        <TableRowEntries>
+          <TableRowEntry>
+            <TableColumnItems>
+              <TableColumnItem><PropertyName>Drive</PropertyName></TableColumnItem>
+              <TableColumnItem><PropertyName>Label</PropertyName></TableColumnItem>
+              <TableColumnItem><PropertyName>FileSystem</PropertyName></TableColumnItem>
+              <TableColumnItem><PropertyName>Health</PropertyName></TableColumnItem>
+              <TableColumnItem><PropertyName>FreeGB</PropertyName></TableColumnItem>
+              <TableColumnItem><PropertyName>FreePercent</PropertyName></TableColumnItem>
+              <TableColumnItem><PropertyName>SizeGB</PropertyName></TableColumnItem>
+            </TableColumnItems>
+          </TableRowEntry>
+        </TableRowEntries>
+      </TableControl>
+    </View>
+
+    <View>
+      <Name>TerminalPro.NetIPAdapter</Name>
+      <ViewSelectedBy><TypeName>TerminalPro.NetIPAdapter</TypeName></ViewSelectedBy>
+      <TableControl>
+        <TableHeaders>
+          <TableColumnHeader><Label>Adapter</Label></TableColumnHeader>
+          <TableColumnHeader><Label>Family</Label></TableColumnHeader>
+          <TableColumnHeader><Label>IP Address</Label></TableColumnHeader>
+          <TableColumnHeader><Label>CIDR</Label><Alignment>Right</Alignment></TableColumnHeader>
+          <TableColumnHeader><Label>Gateway</Label></TableColumnHeader>
+          <TableColumnHeader><Label>DNS</Label></TableColumnHeader>
+          <TableColumnHeader><Label>Status</Label></TableColumnHeader>
+          <TableColumnHeader><Label>Speed</Label></TableColumnHeader>
+          <TableColumnHeader><Label>Interface Description</Label></TableColumnHeader>
+        </TableHeaders>
+        <TableRowEntries>
+          <TableRowEntry>
+            <TableColumnItems>
+              <TableColumnItem><PropertyName>Adapter</PropertyName></TableColumnItem>
+              <TableColumnItem><PropertyName>Family</PropertyName></TableColumnItem>
+              <TableColumnItem><PropertyName>IPAddress</PropertyName></TableColumnItem>
+              <TableColumnItem><PropertyName>PrefixLength</PropertyName></TableColumnItem>
+              <TableColumnItem><PropertyName>Gateway</PropertyName></TableColumnItem>
+              <TableColumnItem><ScriptBlock>$_.DnsServers -join ', '</ScriptBlock></TableColumnItem>
+              <TableColumnItem><PropertyName>Status</PropertyName></TableColumnItem>
+              <TableColumnItem><PropertyName>Speed</PropertyName></TableColumnItem>
+              <TableColumnItem><PropertyName>Description</PropertyName></TableColumnItem>
+            </TableColumnItems>
+          </TableRowEntry>
+        </TableRowEntries>
+      </TableControl>
+    </View>
+
+    <View>
+      <Name>TerminalPro.ModuleInfo</Name>
+      <ViewSelectedBy><TypeName>TerminalPro.ModuleInfo</TypeName></ViewSelectedBy>
+      <TableControl>
+        <TableHeaders>
+          <TableColumnHeader><Label>Name</Label></TableColumnHeader>
+          <TableColumnHeader><Label>Version</Label></TableColumnHeader>
+          <TableColumnHeader><Label>Main Command</Label></TableColumnHeader>
+          <TableColumnHeader><Label>Alias</Label></TableColumnHeader>
+          <TableColumnHeader><Label>Description</Label></TableColumnHeader>
+        </TableHeaders>
+        <TableRowEntries>
+          <TableRowEntry>
+            <TableColumnItems>
+              <TableColumnItem><PropertyName>Name</PropertyName></TableColumnItem>
+              <TableColumnItem><PropertyName>Version</PropertyName></TableColumnItem>
+              <TableColumnItem><PropertyName>Command</PropertyName></TableColumnItem>
+              <TableColumnItem><PropertyName>Alias</PropertyName></TableColumnItem>
+              <TableColumnItem><PropertyName>Description</PropertyName></TableColumnItem>
+            </TableColumnItems>
+          </TableRowEntry>
+        </TableRowEntries>
+      </TableControl>
+    </View>
+
+  </ViewDefinitions>
+</Configuration>

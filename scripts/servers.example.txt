@@ -1,0 +1,8 @@
+# Sample list for Lab-HealthCheck.ps1
+# One name or address per line. Lines starting with # are skipped.
+# Copy this file to servers.txt and put your own names in.
+
+localhost
+# dc01
+# file01
+# file02

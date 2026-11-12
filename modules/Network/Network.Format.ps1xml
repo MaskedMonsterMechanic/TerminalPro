@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- How the Network objects look in the terminal. The objects keep all their properties; this only picks the default view. -->
+<Configuration>
+  <ViewDefinitions>
+
+    <View>
+      <Name>TerminalPro.NetCalc</Name>
+      <ViewSelectedBy><TypeName>TerminalPro.NetCalc</TypeName></ViewSelectedBy>
+      <ListControl>
+        <ListEntries>
+          <ListEntry>
+            <ListItems>
+              <ListItem><Label>Address</Label><PropertyName>Address</PropertyName></ListItem>
+              <ListItem><Label>Netmask</Label><ScriptBlock>'{0} = /{1}' -f $_.Mask, $_.Prefix</ScriptBlock></ListItem>
+              <ListItem><PropertyName>Wildcard</PropertyName></ListItem>
+              <ListItem><Label>Network</Label><PropertyName>Cidr</PropertyName></ListItem>
+              <ListItem><PropertyName>Broadcast</PropertyName></ListItem>
+              <ListItem><Label>Host range</Label><ScriptBlock>'{0} - {1}' -f $_.FirstHost, $_.LastHost</ScriptBlock></ListItem>
+              <ListItem><Label>Usable hosts</Label><PropertyName>UsableHosts</PropertyName></ListItem>
+              <ListItem><Label>Class</Label><PropertyName>Class</PropertyName></ListItem>
+              <ListItem><PropertyName>Type</PropertyName></ListItem>
+              <ListItem><Label>Binary address</Label><PropertyName>BinaryAddress</PropertyName></ListItem>
+              <ListItem><Label>Binary mask</Label><PropertyName>BinaryMask</PropertyName></ListItem>
+              <ListItem><Label>Binary network</Label><PropertyName>BinaryNetwork</PropertyName></ListItem>
+            </ListItems>
+          </ListEntry>
+        </ListEntries>
+      </ListControl>
+    </View>
+
+    <View>
+      <Name>TerminalPro.IPv6Calc</Name>
+      <ViewSelectedBy><TypeName>TerminalPro.IPv6Calc</TypeName></ViewSelectedBy>
+      <ListControl>
+        <ListEntries>
+          <ListEntry>
+            <ListItems>
+              <ListItem><PropertyName>Address</PropertyName></ListItem>
+              <ListItem><PropertyName>Expanded</PropertyName></ListItem>
+              <ListItem><Label>Network</Label><PropertyName>Cidr</PropertyName></ListItem>
+              <ListItem><Label>Range</Label><ScriptBlock>'{0} - {1}' -f $_.FirstAddress, $_.LastAddress</ScriptBlock></ListItem>
+              <ListItem><PropertyName>Type</PropertyName></ListItem>
+              <ListItem><Label>/64 subnets</Label><PropertyName>Subnets64</PropertyName></ListItem>
+              <ListItem><Label>Addresses</Label><PropertyName>Addresses</PropertyName></ListItem>
+              <ListItem><Label>Interface ID</Label><PropertyName>InterfaceId</PropertyName></ListItem>
+              <ListItem><Label>Solicited-node</Label><PropertyName>SolicitedNode</PropertyName></ListItem>
+            </ListItems>
+          </ListEntry>
+        </ListEntries>
+      </ListControl>
+    </View>
+
+    <View>
+      <Name>TerminalPro.SubnetTable</Name>
+      <ViewSelectedBy><TypeName>TerminalPro.SubnetTable</TypeName></ViewSelectedBy>
+      <TableControl>
+        <TableHeaders>
+          <TableColumnHeader><Label>CIDR</Label></TableColumnHeader>
+          <TableColumnHeader><Label>Mask</Label></TableColumnHeader>
+          <TableColumnHeader><Label>Wildcard</Label></TableColumnHeader>
+          <TableColumnHeader><Label>Addresses</Label><Alignment>Right</Alignment></TableColumnHeader>
+          <TableColumnHeader><Label>Usable</Label><Alignment>Right</Alignment></TableColumnHeader>
+          <TableColumnHeader><Label>In class A</Label><Alignment>Right</Alignment></TableColumnHeader>
+          <TableColumnHeader><Label>In class B</Label><Alignment>Right</Alignment></TableColumnHeader>
+          <TableColumnHeader><Label>In class C</Label><Alignment>Right</Alignment></TableColumnHeader>
+        </TableHeaders>
+        <TableRowEntries>
+          <TableRowEntry>
+            <TableColumnItems>
+              <TableColumnItem><PropertyName>Prefix</PropertyName></TableColumnItem>
+              <TableColumnItem><PropertyName>Mask</PropertyName></TableColumnItem>
+              <TableColumnItem><PropertyName>Wildcard</PropertyName></TableColumnItem>
+              <TableColumnItem><PropertyName>Addresses</PropertyName></TableColumnItem>
+              <TableColumnItem><PropertyName>UsableHosts</PropertyName></TableColumnItem>
+              <TableColumnItem><PropertyName>ClassASubnets</PropertyName></TableColumnItem>
+              <TableColumnItem><PropertyName>ClassBSubnets</PropertyName></TableColumnItem>
+              <TableColumnItem><PropertyName>ClassCSubnets</PropertyName></TableColumnItem>
+            </TableColumnItems>
+          </TableRowEntry>
+        </TableRowEntries>
+      </TableControl>
+    </View>
+
+    <View>
+      <Name>TerminalPro.SubnetTable6</Name>
+      <ViewSelectedBy><TypeName>TerminalPro.SubnetTable6</TypeName></ViewSelectedBy>
+      <TableControl>
+        <TableHeaders>
+          <TableColumnHeader><Label>Prefix</Label></TableColumnHeader>
+          <TableColumnHeader><Label>Addresses</Label><Alignment>Right</Alignment></TableColumnHeader>
+          <TableColumnHeader><Label>/48s</Label><Alignment>Right</Alignment></TableColumnHeader>
+          <TableColumnHeader><Label>/52s</Label><Alignment>Right</Alignment></TableColumnHeader>
+          <TableColumnHeader><Label>/56s</Label><Alignment>Right</Alignment></TableColumnHeader>
+          <TableColumnHeader><Label>/60s</Label><Alignment>Right</Alignment></TableColumnHeader>
+          <TableColumnHeader><Label>/64s</Label><Alignment>Right</Alignment></TableColumnHeader>
+        </TableHeaders>
+        <TableRowEntries>
+          <TableRowEntry>
+            <TableColumnItems>
+              <TableColumnItem><PropertyName>Prefix</PropertyName></TableColumnItem>
+              <TableColumnItem><PropertyName>Addresses</PropertyName></TableColumnItem>
+              <TableColumnItem><PropertyName>Sub48</PropertyName></TableColumnItem>
+              <TableColumnItem><PropertyName>Sub52</PropertyName></TableColumnItem>
+              <TableColumnItem><PropertyName>Sub56</PropertyName></TableColumnItem>
+              <TableColumnItem><PropertyName>Sub60</PropertyName></TableColumnItem>
+              <TableColumnItem><PropertyName>Sub64</PropertyName></TableColumnItem>
+            </TableColumnItems>
+          </TableRowEntry>
+        </TableRowEntries>
+      </TableControl>
+    </View>
+
+    <View>
+      <Name>TerminalPro.Subnet</Name>
+      <ViewSelectedBy><TypeName>TerminalPro.Subnet</TypeName></ViewSelectedBy>
+      <TableControl>
+        <TableHeaders>
+          <TableColumnHeader><Label>#</Label><Alignment>Right</Alignment></TableColumnHeader>
+          <TableColumnHeader><Label>Network</Label></TableColumnHeader>
+          <TableColumnHeader><Label>Mask</Label></TableColumnHeader>
+          <TableColumnHeader><Label>First host</Label></TableColumnHeader>
+          <TableColumnHeader><Label>Last host</Label></TableColumnHeader>
+          <TableColumnHeader><Label>Broadcast</Label></TableColumnHeader>
+          <TableColumnHeader><Label>Usable</Label><Alignment>Right</Alignment></TableColumnHeader>
+        </TableHeaders>
+        <TableRowEntries>
+          <TableRowEntry>
+            <TableColumnItems>
+              <TableColumnItem><PropertyName>Subnet</PropertyName></TableColumnItem>
+              <TableColumnItem><PropertyName>Network</PropertyName></TableColumnItem>
+              <TableColumnItem><PropertyName>Mask</PropertyName></TableColumnItem>
+              <TableColumnItem><PropertyName>FirstHost</PropertyName></TableColumnItem>
+              <TableColumnItem><PropertyName>LastHost</PropertyName></TableColumnItem>
+              <TableColumnItem><PropertyName>Broadcast</PropertyName></TableColumnItem>
+              <TableColumnItem><PropertyName>UsableHosts</PropertyName></TableColumnItem>
+            </TableColumnItems>
+          </TableRowEntry>
+        </TableRowEntries>
+      </TableControl>
+    </View>
+
+    <View>
+      <Name>TerminalPro.VlsmPlan</Name>
+      <ViewSelectedBy><TypeName>TerminalPro.VlsmPlan</TypeName></ViewSelectedBy>
+      <TableControl>
+        <TableHeaders>
+          <TableColumnHeader><Label>Name</Label></TableColumnHeader>
+          <TableColumnHeader><Label>Needs</Label><Alignment>Right</Alignment></TableColumnHeader>
+          <TableColumnHeader><Label>Network</Label></TableColumnHeader>
+          <TableColumnHeader><Label>Mask</Label></TableColumnHeader>
+          <TableColumnHeader><Label>First host</Label></TableColumnHeader>
+          <TableColumnHeader><Label>Last host</Label></TableColumnHeader>
+          <TableColumnHeader><Label>Broadcast</Label></TableColumnHeader>
+          <TableColumnHeader><Label>Usable</Label><Alignment>Right</Alignment></TableColumnHeader>
+          <TableColumnHeader><Label>Spare</Label><Alignment>Right</Alignment></TableColumnHeader>
+        </TableHeaders>
+        <TableRowEntries>
+          <TableRowEntry>
+            <TableColumnItems>
+              <TableColumnItem><PropertyName>Name</PropertyName></TableColumnItem>
+              <TableColumnItem><PropertyName>HostsNeeded</PropertyName></TableColumnItem>
+              <TableColumnItem><PropertyName>Network</PropertyName></TableColumnItem>
+              <TableColumnItem><PropertyName>Mask</PropertyName></TableColumnItem>
+              <TableColumnItem><PropertyName>FirstHost</PropertyName></TableColumnItem>
+              <TableColumnItem><PropertyName>LastHost</PropertyName></TableColumnItem>
+              <TableColumnItem><PropertyName>Broadcast</PropertyName></TableColumnItem>
+              <TableColumnItem><PropertyName>UsableHosts</PropertyName></TableColumnItem>
+              <TableColumnItem><PropertyName>Spare</PropertyName></TableColumnItem>
+            </TableColumnItems>
+          </TableRowEntry>
+        </TableRowEntries>
+      </TableControl>
+    </View>
+
+    <View>
+      <Name>TerminalPro.RouteSummary</Name>
+      <ViewSelectedBy><TypeName>TerminalPro.RouteSummary</TypeName></ViewSelectedBy>
+      <ListControl>
+        <ListEntries>
+          <ListEntry>
+            <ListItems>
+              <ListItem><PropertyName>Summary</PropertyName></ListItem>
+              <ListItem><PropertyName>Mask</PropertyName></ListItem>
+              <ListItem><PropertyName>Wildcard</PropertyName></ListItem>
+              <ListItem><PropertyName>Exact</PropertyName></ListItem>
+              <ListItem><Label>Networks given</Label><PropertyName>Networks</PropertyName></ListItem>
+              <ListItem><Label>Addresses in your list</Label><PropertyName>AddressesInList</PropertyName></ListItem>
+              <ListItem><Label>Addresses covered</Label><PropertyName>AddressesCovered</PropertyName></ListItem>
+              <ListItem><Label>Extra addresses covered</Label><PropertyName>Extra</PropertyName></ListItem>
+            </ListItems>
+          </ListEntry>
+        </ListEntries>
+      </ListControl>
+    </View>
+
+    <View>
+      <Name>TerminalPro.NetNumber</Name>
+      <ViewSelectedBy><TypeName>TerminalPro.NetNumber</TypeName></ViewSelectedBy>
+      <ListControl>
+        <ListEntries>
+          <ListEntry>
+            <ListItems>
+              <ListItem><PropertyName>Decimal</PropertyName></ListItem>
+              <ListItem><PropertyName>Binary</PropertyName></ListItem>
+              <ListItem><PropertyName>Hex</PropertyName></ListItem>
+              <ListItem><Label>IPv4 address</Label><PropertyName>Dotted</PropertyName></ListItem>
+            </ListItems>
+          </ListEntry>
+        </ListEntries>
+      </ListControl>
+    </View>
+
+    <View>
+      <Name>TerminalPro.Eui64</Name>
+      <ViewSelectedBy><TypeName>TerminalPro.Eui64</TypeName></ViewSelectedBy>
+      <ListControl>
+        <ListEntries>
+          <ListEntry>
+            <ListItems>
+              <ListItem><PropertyName>MacAddress</PropertyName></ListItem>
+              <ListItem><PropertyName>InterfaceId</PropertyName></ListItem>
+              <ListItem><PropertyName>LinkLocal</PropertyName></ListItem>
+              <ListItem><PropertyName>Address</PropertyName></ListItem>
+            </ListItems>
+          </ListEntry>
+        </ListEntries>
+      </ListControl>
+    </View>
+
+    <View>
+      <Name>TerminalPro.TcpPort</Name>
+      <ViewSelectedBy><TypeName>TerminalPro.TcpPort</TypeName></ViewSelectedBy>
+      <TableControl>
+        <TableHeaders>
+          <TableColumnHeader><Label>Computer</Label></TableColumnHeader>
+          <TableColumnHeader><Label>Port</Label><Alignment>Right</Alignment></TableColumnHeader>
+          <TableColumnHeader><Label>Open</Label></TableColumnHeader>
+          <TableColumnHeader><Label>Result</Label></TableColumnHeader>
+          <TableColumnHeader><Label>ms</Label><Alignment>Right</Alignment></TableColumnHeader>
+        </TableHeaders>
+        <TableRowEntries>
+          <TableRowEntry>
+            <TableColumnItems>
+              <TableColumnItem><PropertyName>ComputerName</PropertyName></TableColumnItem>
+              <TableColumnItem><PropertyName>Port</PropertyName></TableColumnItem>
+              <TableColumnItem><PropertyName>Open</PropertyName></TableColumnItem>
+              <TableColumnItem><PropertyName>Result</PropertyName></TableColumnItem>
+              <TableColumnItem><PropertyName>Milliseconds</PropertyName></TableColumnItem>
+            </TableColumnItems>
+          </TableRowEntry>
+        </TableRowEntries>
+      </TableControl>
+    </View>
+
+    <View>
+      <Name>TerminalPro.EigrpMetric</Name>
+      <ViewSelectedBy><TypeName>TerminalPro.EigrpMetric</TypeName></ViewSelectedBy>
+      <ListControl>
+        <ListEntries>
+          <ListEntry>
+            <ListItems>
+              <ListItem><PropertyName>Metric</PropertyName></ListItem>
+              <ListItem><PropertyName>Formula</PropertyName></ListItem>
+              <ListItem><PropertyName>MinBandwidthKbps</PropertyName></ListItem>
+              <ListItem><PropertyName>TotalDelayUsec</PropertyName></ListItem>
+              <ListItem><PropertyName>Links</PropertyName></ListItem>
+              <ListItem><PropertyName>K</PropertyName></ListItem>
+            </ListItems>
+          </ListEntry>
+        </ListEntries>
+      </ListControl>
+    </View>
+
+    <View>
+      <Name>TerminalPro.OspfCost</Name>
+      <ViewSelectedBy><TypeName>TerminalPro.OspfCost</TypeName></ViewSelectedBy>
+      <ListControl>
+        <ListEntries>
+          <ListEntry>
+            <ListItems>
+              <ListItem><PropertyName>TotalCost</PropertyName></ListItem>
+              <ListItem><PropertyName>LinkCosts</PropertyName></ListItem>
+              <ListItem><PropertyName>ReferenceBandwidth</PropertyName></ListItem>
+            </ListItems>
+          </ListEntry>
+        </ListEntries>
+      </ListControl>
+    </View>
+
+  </ViewDefinitions>
+</Configuration>
